@@ -1,0 +1,173 @@
+$greyDark:#040404;
+$greyLight:#131313;
+$greyLighter: #282828;
+$greyText: #b3b3b3;
+$greyNav: #090909;
+
+* {
+  box-sizing: border-box;
+}
+
+.App {
+  height: calc(100vh - 90px);
+  background: $greyLight;  
+  display: flex;  
+
+}
+
+.subText {
+  font-size: 0.9rem;
+  color: $greyText;
+} 
+
+.navbar {
+  width: 250px;
+  height: 100%;
+  background: $greyDark;
+  padding: 10px 10px 0;
+  display: flex;
+  flex-direction: column;
+  .logo {
+    padding: 1.5rem 1.5rem;
+    color: white;
+    text-align: center;
+  }
+  ul {
+    margin: 0;
+    padding: 0;
+    a {
+      color: inherit;
+      text-decoration: none;
+      &:visited {
+        color: inherit;
+        text-decoration: none;
+      }
+    }
+    li {
+      color: $greyText;
+      list-style-type: none;
+      border-radius: 5px;
+      padding: 0.8rem;
+      font-size: o.9em;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      display: flex;
+      align-items: center;
+      display: flex;
+      align-items: center;
+      svg {
+        fill: currentColor;
+        width: 20px;
+        height: 20px;
+        margin-right: 15px;
+      }
+      &.active {
+        background: $greyLighter;
+        color: white;
+        svg {
+          fill: white;
+        }
+      }
+      &:hover {
+        color: white;
+      }
+    }
+  }
+}
+
+.outerWrap {
+  background: grey;
+  height: 100vh;
+  min-height: 100%;
+}
+
+.workoutControls {
+  background: $greyLighter;
+  text-align: center;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  z-index: 2;
+  position: relative;
+  border-top: 1px solid $greyDark ;
+
+}
+
+.upperNav {
+  background: rgba(9, 9, 9, 8.78);
+  height: 56px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  color: white;
+  padding: 0.5rem 2rem;
+  position: fixed;
+  top: 0;
+
+}
+
+.main {
+  width: 100%;
+  overflow-y: scroll;
+  position: relative;
+  padding-top: 3.4rem;
+  .mainContent {
+    color: white;
+    padding: 0.5rem 2rem;
+    h1 , 
+    h2{
+      font-size: 1.8rem;
+    }
+  }
+}
+
+.cardsWrap {
+  padding-bottom: 2rem;
+  h2 {
+    margin-bottom: 0;
+  }
+  .cardsWrapInner {
+    display: flex;
+
+  }
+  .subText {
+    margin-top: 0.5rem;
+    margin-bottom: 1.2rem;
+  }
+  .card {
+    background: $greyLighter;
+    border-radius: 10px;
+    margin-right: 1.2rem;
+    width: 190px;
+    height: 290px;
+    overflow: hidden;
+    padding: 1.2rem;
+    box-shadow: 0 10px 20px black, 0 1px 2px black;
+    .cardImage {
+      height: 160px;
+      box-shadow: 0 10px 30px black, 0 1px 2px black;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+    .cardContent {
+      padding: 0.4rem 0;
+      h3 {
+        font-weight: 600;
+        font-size: 0.9rem;
+        text-align: center;
+        margin-bottom: 0;
+        letter-spacing: 0.6px;
+      }
+      span {
+        font-size: 0.8rem;
+        color: $greyText;
+
+      }
+    }
+  }
+}
