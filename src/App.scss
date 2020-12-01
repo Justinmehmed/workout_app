@@ -12,7 +12,6 @@ $greyNav: #090909;
   height: calc(100vh - 90px);
   background: $greyLight;  
   display: flex;  
-
 }
 
 .subText {
@@ -48,11 +47,9 @@ $greyNav: #090909;
       list-style-type: none;
       border-radius: 5px;
       padding: 0.8rem;
-      font-size: o.9em;
+      font-size: 0.9em;
       cursor: pointer;
       transition: all 0.3s ease-in-out;
-      display: flex;
-      align-items: center;
       display: flex;
       align-items: center;
       svg {
@@ -101,12 +98,30 @@ $greyNav: #090909;
   width: 100%;
   display: flex;
   align-items: center;
-  color: white;
-  padding: 0.5rem 2rem;
-  position: fixed;
+  position: absolute;
   top: 0;
-
+  .signUp {
+    color: Black;
+    float: right;
+    background-color: rgb(49, 190, 49);
+    border-radius: 50px;
+    
+   
+  }
+  .login {
+    background-color: rgb(49, 190, 49);
+    color: black;
+    border-radius: 50px;
+    cursor: pointer;
+    display: flex;
+    position: absolute;
+    right: 0;  
+    padding-right: 2rem;
+    list-style-type: none;
+  }
 }
+
+
 
 .main {
   width: 100%;

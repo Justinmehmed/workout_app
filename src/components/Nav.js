@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom'
 const Nav = () => {
     return (
     <div className="navbar">
-      <div className="logo">Workout Logo  </div>
+      <div className="logo"> Workout Logo  </div>
             <ul>
                 <Link to="/">
                     <li className="active">
