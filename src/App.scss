@@ -99,23 +99,26 @@ $greyNav: #090909;
   display: flex;
   align-items: center;
   position: absolute;
+  text-decoration:none;
   top: 0;
  ul {
-    color:white;
     cursor: pointer;
     display: flex;
     position: absolute;
     right: 0;  
     padding-right: 2rem;
+    text-decoration: none;
     list-style-type: none;
     .signUp, .login {
-      background-color: rgb(36, 141,
-       36);
-       border: 1px solid white;
-      border-radius: 25px;
+      color: white;
+      background-color:  rgba(216, 206, 206, 0.924);
+       border: 2px solid rgb(4, 194, 14);
+      border-radius: 4px;
       margin: 0 15px;
       text-align: center;
-      padding: 0, 0,  0.2rem;
+      padding-left: 2rem;
+      padding-right: 2rem;
+      
     }  
   
  }
@@ -140,6 +143,12 @@ $greyNav: #090909;
 
 .cardsWrap {
   padding-bottom: 2rem;
+  .seeAll {
+    position: absolute;
+    right: 0;  
+    padding-right: 2rem;
+    
+  }
   h2 {
     margin-bottom: 0;
   }
@@ -172,6 +181,8 @@ $greyNav: #090909;
     .cardContent {
       padding: 0.4rem 0;
       h3 {
+        color: $greyText;
+        text-decoration: none;
         font-weight: 600;
         font-size: 0.9rem;
         text-align: center;
@@ -187,25 +198,46 @@ $greyNav: #090909;
   }
 }
 
-.form-control {
-padding: 6px 12px;
-line-height: 1.42857143;
-background-color: $greyDark;
-border: 1px solid white;
-border-radius: 4px;
+.signform {
+text-align: center;
+.form-control { 
 margin-bottom: 20px;
-width: 30%;
-label {
-  color: rgb(36, 141,
-  36);
-  font-size: 14px;
-  width: 115px;
-  display: inline-block; 
+}
+h1 {
+  text-align: center;
+  color: $greyText;
+  font-size: 50px;
+  font-weight: 600;
+  padding-bottom: 30px;
+
 }
 }
+  input[type='text'],
+  input[type='password'],
+  input[type='email'] {
+    width: 400px;
+    font-size: 20px;
+    line-height: 1.5;
+    color: white;
+    background-color: $greyDark;
+    border: 1px solid white;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
 button {
-  color: green;
+  display: flex;
+  margin: 0;
+  position: relative;
+  font-size: 20px;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  color: $greyText;
   background-color: $greyDark;
-  border: 1px solid  rgb(36, 141,
-  36);
+  border: 1px solid white;
+}
+.error {
+  color: red;
+  
 }

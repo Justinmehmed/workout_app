@@ -1,5 +1,6 @@
 import React from 'react'
 import { useFormik } from 'formik'
+import * as Yup from 'yup'
 
 
 
@@ -13,75 +14,74 @@ import { useFormik } from 'formik'
         console.log('Form data', values)    
     }
 
-    const validate = values => {
-        let errors = {}
-        if (!values.name){
-            errors.name = 'Required'
-        }
-        if (!values.password){
-            errors.password = 'Required'
-        }
-        if (!values.email){
-            errors.email = 'Required'
-        }
-
-    return errors
-
-    }
+    const validationSchema = Yup.object ({
+        name: Yup.string().required('Required'),
+        password: Yup.string().required('No password provided'),
+        email: Yup.string().email('Invalid email format').required('Required')
+    })
 
 const Signup = () => {
     
     const formik = useFormik({
           initialValues,
           onSubmit,
-          validate
+          validationSchema
+        //   validate
         })
        
       
 
-    console.log('Form errors', formik.errors)
+    console.log('Visited fields', formik.touched)
     
     return (
  
-        <div>
+        <div className="signform">
+            <h1 className='title'>Create Account</h1>
+            
             <form onSubmit={formik.handleSubmit}>
                 <div className="form-control">
                     <label htmlFor='name'></label>
                     <input type='text' 
-                    id='name' 
-                    name='name' 
-                    onChange={formik.handleChange} 
-                    value={formik.values.name} 
-                    placeholder="User Name"
+                        id='name' 
+                        name='name' 
+                        onChange={formik.handleChange} 
+                        onBlur={formik.handleBlur}
+                        value={formik.values.name} 
+                        placeholder="User Name"
                     />
-                    {formik.errors.name ? 
-                 <div className='error'>{formik.errors.name}</div> : null}
+                    {formik.touched.name && formik.errors.name ? (
+                 <div className='error'>{formik.errors.name}</div> 
+                 ) : null}
                 </div>
 
                 <div className="form-control">
                     <label htmlFor='passWord'></label>
                     <input type='password' 
-                    id='passworde' 
-                    name='password' 
-                    onChange={formik.handleChange} 
-                    value={formik.values.password}
-                    placeholder="Create Password" 
+                        id='passworde' 
+                        name='password' 
+                        onChange={formik.handleChange} 
+                        onBlur={formik.handleBlur}
+                        value={formik.values.password}
+                        placeholder="Create Password" 
                     />
-                    {formik.errors.password ? 
-                  <div className='error'>{formik.errors.password}</div> : null}
+                    {formik.touched.password && formik.errors.password ? (
+                  <div className='error'>{formik.errors.password}</div>
+                  ) : null}
                 </div>
                 
                 <div className="form-control">
                     <label htmlFor='email'> </label>
                     <input type='email' 
-                    id='email' 
-                    name='email' 
-                    onChange={formik.handleChange} 
-                    value={formik.values.email} 
-                    placeholder="Email"
+                        id='email' 
+                        name='email' 
+                        onChange={formik.handleChange} 
+                        onBlur={formik.handleBlur}
+                        value={formik.values.email} 
+                        placeholder="Email"
                     />
-                    {formik.errors.email ? 
-                   <div className='error'>{formik.errors.email}</div> : null}
+                    {formik.touched.email && formik.errors.email ? (
+                   <div className='error'>{formik.errors.email}</div>
+                   ) : null}
                 </div>
 
                 <button type='submit'>Submit</button>
