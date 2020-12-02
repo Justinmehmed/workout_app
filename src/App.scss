@@ -100,25 +100,25 @@ $greyNav: #090909;
   align-items: center;
   position: absolute;
   top: 0;
-  .signUp {
-    color: Black;
-    float: right;
-    background-color: rgb(49, 190, 49);
-    border-radius: 50px;
-    
-   
-  }
-  .login {
-    background-color: rgb(49, 190, 49);
-    color: black;
-    border-radius: 50px;
+ ul {
+    color:white;
     cursor: pointer;
     display: flex;
     position: absolute;
     right: 0;  
     padding-right: 2rem;
     list-style-type: none;
-  }
+    .signUp, .login {
+      background-color: rgb(36, 141,
+       36);
+       border: 1px solid white;
+      border-radius: 25px;
+      margin: 0 15px;
+      text-align: center;
+      padding: 0, 0,  0.2rem;
+    }  
+  
+ }
 }
 
 
@@ -185,4 +185,27 @@ $greyNav: #090909;
       }
     }
   }
+}
+
+.form-control {
+padding: 6px 12px;
+line-height: 1.42857143;
+background-color: $greyDark;
+border: 1px solid white;
+border-radius: 4px;
+margin-bottom: 20px;
+width: 30%;
+label {
+  color: rgb(36, 141,
+  36);
+  font-size: 14px;
+  width: 115px;
+  display: inline-block; 
+}
+}
+button {
+  color: green;
+  background-color: $greyDark;
+  border: 1px solid  rgb(36, 141,
+  36);
 }

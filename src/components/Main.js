@@ -14,15 +14,18 @@ const Main = () => {
     return (
         <div className="main">
          <div className="upperNav"> 
+        <ul>
+        <li className="signUp"> 
+            <Link to="/sign_up">
+                Sign Up 
+            </Link>
+         </li>
+         <li className="login"> 
+            <Link to="/login">Log in 
+            </Link>
+         </li>
 
-         <Link to="/sign_up">
-            <li className="signUp"> Sign Up </li>
-         </Link>
-
-         <Link to="/login">
-            <li className="login"> Log in </li>
-         </Link>
-         
+         </ul>
         </div>
           <div className="mainContent">
             <Switch>
