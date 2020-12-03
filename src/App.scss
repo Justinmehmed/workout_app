@@ -107,21 +107,34 @@ $greyNav: #090909;
     position: absolute;
     right: 0;  
     padding-right: 2rem;
-    text-decoration: none;
-    list-style-type: none;
-    .signUp, .login {
+    .signUp {
+      text-decoration: none;
+      list-style-type: none;
+      font-size: 0.9rem;
       color: white;
-      background-color:  rgba(216, 206, 206, 0.924);
+      background-color: $greyLighter;
        border: 2px solid rgb(4, 194, 14);
       border-radius: 4px;
       margin: 0 15px;
       text-align: center;
-      padding-left: 2rem;
-      padding-right: 2rem;
-      
+      padding-left: 1rem;
+      padding-right: 1rem; 
     }  
-  
- }
+    .log {
+      text-decoration: none;
+      list-style-type: none;
+      font-size: 0.9rem;
+      color: white;
+      background-color: $greyLighter;
+       border: 2px solid rgb(4, 194, 14);
+      border-radius: 4px;
+      margin: 0 15px;
+      text-align: center;
+      padding-left: 1rem;
+      padding-right: 1rem; 
+
+    }
+  }
 }
 
 
@@ -180,9 +193,11 @@ $greyNav: #090909;
     }
     .cardContent {
       padding: 0.4rem 0;
+      
+  
       h3 {
         color: $greyText;
-        text-decoration: none;
+        
         font-weight: 600;
         font-size: 0.9rem;
         text-align: center;
@@ -198,6 +213,13 @@ $greyNav: #090909;
   }
 }
 
+.main {
+  .status {
+    font-size: 10px;
+    padding: 2rem;
+    color: $greyText;
+  }
+}
 .signform {
 text-align: center;
 .form-control { 
@@ -205,7 +227,7 @@ margin-bottom: 20px;
 }
 h1 {
   text-align: center;
-  color: $greyText;
+  color: white;
   font-size: 50px;
   font-weight: 600;
   padding-bottom: 30px;

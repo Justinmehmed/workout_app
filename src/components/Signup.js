@@ -1,18 +1,43 @@
 import React from 'react'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
+import axios from 'axios'
 
 
 
     const initialValues = {
         name: '',
         password: '',
+        password_confirmation:'',
         email: ''
     }
 
     const onSubmit = values => {
-        console.log('Form data', values)    
-    }
+        const { name, email, password, password_confirmation } = values;
+
+    axios
+      .post(
+        "http://localhost:3001/registrations",
+        {
+          user: {
+            name: name,
+            email: email,
+            password: password,
+            password_confirmation: password_confirmation
+          }
+        },
+      )
+      .then(response => {
+        if (response.data.status === "created") {
+          values.handleSuccessfulAuth(response.data);
+        }
+      })
+      .catch(error => {
+        console.log("registration error", error);
+      });
+
+  }
+           
 
     const validationSchema = Yup.object ({
         name: Yup.string().required('Required'),
@@ -26,7 +51,6 @@ const Signup = () => {
           initialValues,
           onSubmit,
           validationSchema
-        //   validate
         })
        
       
@@ -40,6 +64,7 @@ const Signup = () => {
             
             <form onSubmit={formik.handleSubmit}>
                 <div className="form-control">
+                    
                     <label htmlFor='name'></label>
                     <input type='text' 
                         id='name' 
@@ -63,6 +88,21 @@ const Signup = () => {
                         onBlur={formik.handleBlur}
                         value={formik.values.password}
                         placeholder="Create Password" 
+                    />
+                    {formik.touched.password && formik.errors.password ? (
+                  <div className='error'>{formik.errors.password}</div>
+                  ) : null}
+                </div>
+
+                <div className="form-control">
+                    <label htmlFor='passWord_comfirmation'></label>
+                    <input type='password' 
+                        id='passworde' 
+                        name='password_confirmation' 
+                        onChange={formik.handleChange} 
+                        onBlur={formik.handleBlur}
+                        value={formik.values.password_confirmation}
+                        placeholder="Password confirmation " 
                     />
                     {formik.touched.password && formik.errors.password ? (
                   <div className='error'>{formik.errors.password}</div>

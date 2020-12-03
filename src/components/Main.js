@@ -10,27 +10,53 @@ import Signup from './Signup'
 
 
 
+
 const Main = () => {
+ 
+
+  const values = {
+      loggedInStatus: "Please log in",
+      user: {}
+
+  }
+
+  // values.handleSuccessfulAuth = values.handleSuccessfulAuth.(values)
+
+  const handleSuccessfulAuth = (data) => {
+    values.handleLogin(data);
+    values.history.push("/");
+  }
+  
+
     return (
         <div className="main">
          <div className="upperNav"> 
+         <h3 className='status'>Status: {values.loggedInStatus}</h3>
         <ul>
-        <li className="signUp"> 
-            <Link to="/sign_up">
-                Sign Up 
-            </Link>
-         </li>
-         <li className="login"> 
-            <Link to="/login">Log in 
-            </Link>
-         </li>
+
+          <Link to="/sign_up">
+            <li className="signUp"> 
+                 Sign Up 
+            </li>
+           </Link>
+
+         <Link to="/login">
+          <li className="log">  
+          Log in  
+          </li>
+         </Link>
 
          </ul>
         </div>
           <div className="mainContent">
             <Switch>
              
-              <Route path="/" exact component={Categories}></Route>
+              <Route exact path={"/"} 
+              render={props =>(
+                <Categories {...props} loggedInStatus={values.loggedInStatus} />
+              )}
+              />
+             
               <Route path="/search">Search</Route>
               <Route path="/my_workouts">My Workouts</Route>
               <Route path="/create_workout" component={Create}></Route>
@@ -44,7 +70,8 @@ const Main = () => {
           </div>
         </div>
   
-    )    
+    )  
+    
 }
 
 export default Main
